@@ -19,6 +19,8 @@ end
 def scraping(doc)
   ## -----*----- スクレイピング -----*----- ##
 
+  # 検索フォーム
+  doc.get('https://dajare.jp/#Search')
   # DBにレコードを追加
   # $model.<table>.create(col1: value, col2: value...)
 
