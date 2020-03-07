@@ -1,7 +1,7 @@
 file:
   'db/develop.sqlite3'
 tables:
-  - users:
+  - jokes:
     - name: 'joke'
       type: 'string'
       opts:
