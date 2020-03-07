@@ -19,3 +19,6 @@ end
 open('jokes.json', 'w') do |io|
   JSON.dump(data, io)
 end
+
+
+puts 'Successful to dump json!!'
