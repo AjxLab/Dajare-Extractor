@@ -2,11 +2,13 @@ file:
   'db/develop.sqlite3'
 tables:
   - users:
-    - name: 'name'
+    - name: 'joke'
       type: 'string'
       opts:
         - 'null: false'
-    - name: 'age'
+    - name: 'author'
+      type: 'string'
+    - name: 'score'
       type: 'integer'
       opts:
         - 'null: false'
