@@ -1,17 +1,17 @@
 Spider
 ======
 
-[![](https://github.com/AjxLab/Dajare-Extractor/workflows/build/badge.svg)](https://github.com/AjxLab/Spider/actions)
+[![](https://github.com/AjxLab/Dajare-Extractor/workflows/build/badge.svg)](https://github.com/AjxLab/Dajare-Extractor/actions)
 [![MIT License](http://img.shields.io/badge/license-MIT-blue.svg?style=flat)](LICENSE)
 
-Spider of this <[insert link here]()>.
+Spider of this [ダジャレステーション](https://dajare.jp/).
 
 
 ## Description
-Show a summary of this spider here and about the following items.
-* about the target site
-* about data to fetch
-* about when to fetch
+This spider fetchs the following items.
+* dajare text
+* dajare stars
+* dajare author
 
 
 ## Requirements
@@ -79,6 +79,9 @@ $ cd <this repo>
 $ bundle install
 ```
 
+
+## References
+<div><a href="https://dajare.jp/" target="_blank"><img src="https://dajare.jp/library/image/Banner/Advertisement/Dajare180x28.png" alt="ダジャレ（だじゃれ）ステーション" border="0" vspace="8" onmouseover="this.src=this.src.replace('png','gif');" onmouseout="this.src=this.src.replace('gif','png');" /></a></div>
 
 ## Author
 * Tatsuya Abe
