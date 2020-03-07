@@ -7,7 +7,7 @@ tables:
       opts:
         - 'null: false'
     - name: 'score'
-      type: 'integer'
+      type: 'float'
       opts:
         - 'null: false'
     - name: 'author'

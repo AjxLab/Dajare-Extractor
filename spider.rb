@@ -79,7 +79,7 @@ end
 
 
 if __FILE__ == $0
-  crawl(multi: false, echo_bar: false)
+  crawl(multi: false, echo_bar: false, delay: 0)
   footer_exit
 end
 

@@ -18,7 +18,6 @@ end
 
 def scraping(doc, delay: 3, depth_limit: nil)
   ## -----*----- スクレイピング -----*----- ##
-
   # 検索フォーム
   doc.get(URL + '/#Search')
   doc.send(id: 'ViewQuantity', value: '1000')
@@ -26,27 +25,34 @@ def scraping(doc, delay: 3, depth_limit: nil)
 
   if depth_limit.nil?
     n_jokes = doc.xpath('//*[@id="PanelContentMain"]/p[2]/span').inner_text.to_i
-    depth_limit =  n_jokes / 1000 + 1
+    depth_limit = n_jokes / 1000 + 1
   end
 
-  mdap(depth_limit) {
+  n = 0
+
+  mdap(depth_limit) { |i|
     jokes = doc.css('.List').css('tr').drop(1)
     jokes.each do |el|
-      p el.css('a').inner_text
-      p el.css('.ListWorkScore').inner_text.to_f
+      # ダジャレの情報
+      joke = {
+        joke: el.css('a').inner_text,
+        score: el.css('.ListWorkScore').inner_text.to_f,
+        author: el.css('.ListWorkAuthor').inner_text
+      }
+
+      # 新規ダジャレの場合 -> DBに保存
+      if $model.jokes.find_by(**joke).nil?
+        $model.jokes.create(**joke)
+        n += 1
+      end
     end
 
+    # 次ページへ移動
+    if i != depth_limit-1
+      doc.submit(id: 'FormButtonNext')
+      sleep delay
+    end
   }
-  jokes = doc.css('.List').css('tr').drop(1)
-  p jokes.length
 
-
-  # DBにレコードを追加
-  # $model.<table>.create(col1: value, col2: value...)
-
-  # メールにアラートを出す
-  # send_mail(to_address, subject, body)
-
-  # ログ出力
-  # $logger.<level>('log text')
+  $logger.info("取得完了：新規#{n}件")
 end
