@@ -10,7 +10,7 @@ Spider of this [ダジャレステーション](https://dajare.jp/).
 ## Description
 This spider fetchs the following items.
 * dajare text
-* dajare stars
+* dajare score
 * dajare author
 
 

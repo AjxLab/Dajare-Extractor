@@ -6,11 +6,11 @@ tables:
       type: 'string'
       opts:
         - 'null: false'
-    - name: 'author'
-      type: 'string'
     - name: 'score'
       type: 'integer'
       opts:
         - 'null: false'
+    - name: 'author'
+      type: 'string'
     - type: 'timestamps'
 
