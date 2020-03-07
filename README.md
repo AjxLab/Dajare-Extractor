@@ -33,28 +33,6 @@ Application Password：**********  # Enter your application password
 ```
 ### Database
 #### Migratiton
-1. Write DB settings in [config/db.yml](config/db.yml)
-* file -> sqlite3 file path (required)
-* name -> column name (not required)
-* type -> column type (required)
-* opts -> column opts (not required)
-```yml
-file:
-  'your db file'
-tables:
-  - <table name>:
-    - name: <column name>
-      type: <column type>
-      opts:
-        - <column opts>
-        - 'unique: true'
-        - 'null: false'
-    - name: ...
-      type: ...
-  - <table name>:
-    ...
-```
-2. Execute migration
 ```sh
 $ bundle exec rake db:migrate
 ```
