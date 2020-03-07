@@ -24,6 +24,19 @@ def scraping(doc, delay: 3, depth_limit: nil)
   doc.send(id: 'ViewQuantity', value: '1000')
   doc.submit(id: 'FormSearch')
 
+  if depth_limit.nil?
+    n_jokes = doc.xpath('//*[@id="PanelContentMain"]/p[2]/span').inner_text.to_i
+    depth_limit =  n_jokes / 1000 + 1
+  end
+
+  mdap(depth_limit) {
+    jokes = doc.css('.List').css('tr').drop(1)
+    jokes.each do |el|
+      p el.css('a').inner_text
+      p el.css('.ListWorkScore').inner_text.to_f
+    end
+
+  }
   jokes = doc.css('.List').css('tr').drop(1)
   p jokes.length
 
