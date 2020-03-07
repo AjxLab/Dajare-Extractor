@@ -20,7 +20,14 @@ def scraping(doc)
   ## -----*----- スクレイピング -----*----- ##
 
   # 検索フォーム
-  doc.get('https://dajare.jp/#Search')
+  doc.get(URL + '/#Search')
+  doc.send(id: 'ViewQuantity', value: '1000')
+  doc.submit(id: 'FormSearch')
+
+  jokes = doc.css('.List').css('tr').drop(1)
+  p jokes.length
+
+
   # DBにレコードを追加
   # $model.<table>.create(col1: value, col2: value...)
 
