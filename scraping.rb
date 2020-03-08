@@ -32,12 +32,14 @@ def scraping(doc, delay: 3, depth_limit: nil)
 
   mdap(depth_limit) { |i|
     jokes = doc.css('.List').css('tr').drop(1)
+    p jokes.length
     jokes.each do |el|
       # ダジャレの情報
       joke = {
         joke: el.css('a').inner_text,
         score: el.css('.ListWorkScore').inner_text.to_f,
-        author: el.css('.ListWorkAuthor').inner_text
+        author: el.css('.ListWorkAuthor').inner_text,
+        is_joke: true
       }
 
       # 新規ダジャレの場合 -> DBに保存
@@ -49,6 +51,7 @@ def scraping(doc, delay: 3, depth_limit: nil)
 
     # 次ページへ移動
     if i != depth_limit-1
+      doc.send(id: 'ButtonPageNext', click: true)
       doc.submit(id: 'FormButtonNext')
       sleep delay
     end
