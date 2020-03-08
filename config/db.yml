@@ -12,5 +12,10 @@ tables:
         - 'null: false'
     - name: 'author'
       type: 'string'
+    - name: 'is_joke'
+      type: 'boolean'
+      opts:
+        - 'default: true'
+        - 'null: false'
     - type: 'timestamps'
 
