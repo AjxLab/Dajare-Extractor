@@ -32,7 +32,6 @@ def scraping(doc, delay: 3, depth_limit: nil)
 
   mdap(depth_limit) { |i|
     jokes = doc.css('.List').css('tr').drop(1)
-    p jokes.length
     jokes.each do |el|
       # ダジャレの情報
       joke = {
